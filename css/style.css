@@ -1,0 +1,274 @@
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    /* 叠加一层径向渐变环境光，中心亮，四周暗 */
+    background: radial-gradient(circle at 50% 30%, #2a5298 0%, #1e3c72 40%, #0f1f3d 100%);
+
+
+/* ================= 星空特效样式 ================= */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 确保在所有内容的最底层 */
+    }
+
+/* ================= 顶部导航 ================= */
+/* 顶部导航整体布局 */
+header {
+    display: flex;
+    justify-content: space-between; /* 左右两端对齐 */
+    align-items: flex-start; /* 顶部对齐 */
+    padding: 20px 40px;
+    z-index: 10;
+}
+
+/* 左侧 Logo 容器（让图片和文字上下排列） */
+.logo-container {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 居中对齐 */
+    gap: 8px; /* 图片和下方文字的间距 */
+}
+
+/* 图片并排容器 */
+.logo-images {
+    display: flex;
+    flex-direction: row; /* 两个 logo 横向排列 */
+    gap: 15px; /* 两个 logo 之间的间距 */
+    align-items: center;
+}
+
+/* 控制 Logo 图片的大小（关键！） */
+.school-logo {
+    height: 45px; /* 高度固定为 45px，如果觉得大可以改成 35px */
+    width: auto;  /* 宽度自动等比缩放 */
+}
+
+/* Logo 下方的文字样式 */
+.logo-text {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: rgba(78, 188, 111, 0.735);
+}
+
+/* 右上角的作者信息 */
+.author {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px; /* 稍微往下压一点，和 logo 对齐 */
+}
+
+/* ================= 中心展示区 ================= */
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeInUp 1s ease-out;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: 3rem; /* 放大主标题 */
+    font-weight: 800; /* 加粗 */
+    letter-spacing: 2px; /* 字间距拉开，显得大气 */
+    margin-bottom: 20px;
+    /* 给文字加一点渐变发光，更有科技感 */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 650px;
+    line-height: 1.8; /* 行距拉大，阅读更舒适 */
+    color: rgba(255,255,255,0.7); /* 稍微降低透明度，让出视觉重心 */
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px; /* 标签和按钮之间留出大空间 */
+}
+
+.tags span {
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tags span:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-3px);
+}
+
+/* ================= 三个小图标样式 ================= */
+.icon-group {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    gap: 25px; /* 三个图标之间的间距 */
+    margin-bottom: 60px; /* 和下方六个标签留出距离 */
+    animation: fadeInUp 1.2s ease-out; /* 加一点淡入动画 */
+}
+
+.icon-circle {
+    width: 50px; /* 圆形底座的总宽度 */
+    height: 50px; /* 圆形底座的总高度 */
+    border-radius: 50%; /* 变成正圆形 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 这里的背景色和边框就是毛玻璃效果 */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.icon-circle:hover {
+    transform: translateY(-5px); /* 鼠标放上去有一个轻微上浮效果 */
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.icon-circle img {
+    width: 25px; /* 控制内部图片的大小，比圆盘小一圈 */
+    height: auto;
+    object-fit: contain; /* 保证图片等比例缩放，不会变形 */
+}
+
+/* 探索按钮 */
+button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 45px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    /* 使用半透明渐变底色 */
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.25));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50px; /* 完全圆角 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(255,255,255,0.5));
+    box-shadow: 0 0 20px rgba(255,255,255,0.4); /* 悬停时光晕 */
+    transform: translateY(-2px); /* 往上抬一点 */
+}
+
+/* ================= 核心功能展示区 ================= */
+.library {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    background: rgba(0,0,0,0.2); /* 稍微加深一点底部背景，让卡片更突出 */
+    z-index: 10;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    width: 320px;
+    padding: 40px 20px;
+    /* 增加顶部的高光渐变，让玻璃更立体 */
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+    backdrop-filter: blur(20px); /* 增加模糊度 */
+    -webkit-backdrop-filter: blur(20px);
+    /* 增加内部阴影和外部投影，模拟玻璃厚度 */
+    border: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255,255,255,0.5); 
+    border-left: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 更有弹性的动画 */
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02); /* 悬浮时稍微放大 */
+    background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 100%);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.2); /* 悬停发光 */
+    border-top: 1px solid rgba(255,255,255,0.8); 
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.card svg {
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+}
+
+/* ================= 底部 ================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    z-index: 10;
+}
+
+/* ================= 动画 ================= */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= 手机端适配 ================= */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 10px; text-align: center; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 1rem; }
+    .library { flex-direction: column; align-items: center; }
+    .card { width: 90%; }
+}}

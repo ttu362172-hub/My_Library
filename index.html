@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业文献数字化平台</title>
+    <!-- 引入外部 CSS 文件 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 动态星空画布，作为背景 -->
+    <canvas id="starfield"></canvas>
+
+    <!-- 顶部导航栏 -->
+        <!-- 顶部导航栏 -->
+        <header>
+            <!-- 左侧 Logo 和文字区 -->
+            <div class="logo-container">
+                <!-- 两个并排的 logo -->
+                <div class="logo-images">
+                    <img src="images/logo.png" alt="校徽" class="school-logo">
+                </div>
+                <!-- 文字放在图片下方 -->
+                <div class="logo-text">武汉轻工大学 经济学院数字经济系</div>
+            </div>
+            
+            <!-- 右侧作者信息（恢复显示） -->
+            <div class="author">网站作者：数字经济2402班</div>
+        </header>
+
+    <!-- 中心展示区 -->
+    <main class="hero">
+        <h1>聚焦农业高新科技 驱动产业创新升级</h1>
+        <p>深入探讨农业高新技术产业化创新机制，汇聚前沿学术成果，助力现代农业高质量发展。</p>
+        
+        <!-- 分类标签 -->
+                
+        <div class="tags">
+            <span>高新技术</span>
+            <span>产业化</span>
+            <span>创新机制</span>
+            <span>农业科技</span>
+            <span>政策支持</span>
+            <span>成果转化</span>
+        </div>
+
+                <!-- 新增的三个小图标 -->
+                <div class="icon-group">
+                    <div class="icon-circle">
+                        <img src="images/agrotechnical.png" alt="农业科技">
+                    </div>
+                    <div class="icon-circle">
+                        <img src="images/create.png" alt="创新">
+                    </div>
+                    <div class="icon-circle">
+                        <img src="images/study.png" alt="研究">
+                    </div>
+                </div>
+
+        <!-- 探索按钮 -->
+        <button id="explore-btn">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            探索文献资源
+        </button>
+    </main>
+
+    <!-- 核心功能展示区 -->
+    <section class="library" id="library-section">
+        <!-- 卡片1：PDF电子书 -->
+        <a href="pdf/book.pdf" target="_blank" class="card">
+            <svg viewBox="0 0 24 24" width="40" height="40" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <h3>项目一：文献 PDF 电子书</h3>
+            <p>点击查阅完整的本地文献 PDF</p>
+        </a>
+
+        <!-- 卡片2：网页电子书 -->
+        <a href="ebook/home.html" target="_blank" class="card">
+            <svg viewBox="0 0 24 24" width="40" height="40" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <h3>项目二：静态网页电子书</h3>
+            <p>在线阅读 OCR 校对的网页版文本</p>
+        </a>
+    </section>
+
+    <!-- 底部版权 -->
+    <footer>
+        Copyright © 2026 Dept of Digital Economy, Wuhan Polytechnic University.
+    </footer>
+
+    <!-- 引入外部 JS 文件 -->
+    <script src="js/script.js"></script>
+</body>
+</html>
